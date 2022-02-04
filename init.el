@@ -32,6 +32,7 @@
 ;; Don't show menubar or toolbar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(toggle-scroll-bar -1)
 
 ;; Function for commenting current line
 (defun toggle-comment-on-line ()
