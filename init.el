@@ -3,21 +3,9 @@
 (load-theme 'naysayer t)
 
 ;; Default window size
-(defun set-frame-size-according-to-resolution ()
-  (interactive)
-  (if window-system
-    (progn
-      ;; Use fewer columns for smaller windows
-      (if (> (x-display-pixel-width) 1280)
-          (add-to-list 'default-frame-alist (cons 'width 180))
-        (add-to-list 'default-frame-alist (cons 'width 100)))
-      ;; Subtract a few pixels off of total screen height
-      (add-to-list 'default-frame-alist 
-		   (cons 'height (/ (- (x-display-pixel-height) 260)
-				    (frame-char-height)))))))
-(set-frame-size-according-to-resolution)
-
-
+(add-to-list 'default-frame-alist '(width . 160))
+(add-to-list 'default-frame-alist '(height . 50))
+(set-frame-position (selected-frame) 240 120)
 
 ;; Some Emacs-generated stuff to trust the naysayer theme
 (custom-set-variables
