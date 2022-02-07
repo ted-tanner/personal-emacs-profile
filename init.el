@@ -34,15 +34,6 @@
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
 
-;; Function for commenting current line
-(defun toggle-comment-on-line ()
-  "comment or uncomment current line"
-  (interactive)
-  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-
-;; Keybindings
-(global-set-key (kbd "C-c C-c") 'toggle-comment-on-line)
-
 ;; Rust Language support
 (add-to-list 'load-path "/Users/tanner/.emacs.d/rust-mode-master")
 (autoload 'rust-mode "rust-mode" nil t)
