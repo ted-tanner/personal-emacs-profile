@@ -7,6 +7,9 @@
 (add-to-list 'default-frame-alist '(height . 50))
 (set-frame-position (selected-frame) 240 120)
 
+;; Don't show Emacs welcome screen
+(setq inhibit-startup-screen t)
+
 ;; Some Emacs-generated stuff to trust the naysayer theme
 (custom-set-variables
  '(custom-safe-themes
