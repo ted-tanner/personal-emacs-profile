@@ -25,6 +25,9 @@
 (setq auto-save-file-name-transforms
     `((".*" ,temporary-file-directory t)))
 
+;; Automatically revert buffers when changed on disk
+(global-auto-revert-mode 1)
+
 ;; Don't remap C-x to C-c when using `M-x term`
 (add-hook 'term-mode-hook
    (lambda ()
@@ -41,3 +44,4 @@
 (add-to-list 'load-path "/Users/tanner/.emacs.d/rust-mode-master")
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(put 'narrow-to-region 'disabled nil)
