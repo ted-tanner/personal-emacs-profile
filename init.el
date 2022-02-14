@@ -42,9 +42,9 @@
 
 ;; Bind scroll 8 lines at a time to C-M-n and C-M-p
 (global-set-key (kbd "C-M-n")
-    (lambda () (interactive) (next-line 6)))
+    (lambda () (interactive) (next-line 8)))
 (global-set-key (kbd "C-M-p")
-    (lambda () (interactive) (previous-line 6)))
+    (lambda () (interactive) (previous-line 8)))
 
 ;; Rust Language support
 (add-to-list 'load-path "/Users/tanner/.emacs.d/rust-mode-master")
