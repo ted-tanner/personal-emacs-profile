@@ -10,6 +10,11 @@
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
 
+;; Don't show menubar or toolbar
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
+
 ;; Some Emacs-generated stuff to trust the naysayer theme
 (custom-set-variables
  '(custom-safe-themes
@@ -35,10 +40,11 @@
      (define-key term-raw-map "\M-y" 'yank-pop)
      (define-key term-raw-map "\M-w" 'kill-ring-save)))
 
-;; Don't show menubar or toolbar
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(toggle-scroll-bar -1)
+;; Bind scroll 8 lines at a time to C-M-n and C-M-p
+(global-set-key (kbd "C-M-n")
+    (lambda () (interactive) (next-line 6)))
+(global-set-key (kbd "C-M-p")
+    (lambda () (interactive) (previous-line 6)))
 
 ;; Rust Language support
 (add-to-list 'load-path "/Users/tanner/.emacs.d/rust-mode-master")
