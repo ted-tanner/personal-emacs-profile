@@ -41,13 +41,16 @@
      (define-key term-raw-map "\M-w" 'kill-ring-save)))
 
 ;; Bind scroll 8 lines at a time to C-M-n and C-M-p
-(global-set-key (kbd "C-M-n")
+(global-set-key (kbd "M-n")
     (lambda () (interactive) (next-line 8)))
-(global-set-key (kbd "C-M-p")
+(global-set-key (kbd "M-p")
     (lambda () (interactive) (previous-line 8)))
 
 ;; Rust Language support
 (add-to-list 'load-path "/Users/tanner/.emacs.d/rust-mode-master")
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+;; Enable shortcuts that are disabled by default
 (put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
