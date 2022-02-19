@@ -13,7 +13,8 @@
 ;; Don't show menubar or toolbar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(toggle-scroll-bar -1)
+(customize-set-variable 'scroll-bar-mode nil)
+(customize-set-variable 'horizontal-scroll-bar-mode nil)
 
 ;; Some Emacs-generated stuff to trust the naysayer theme
 (custom-set-variables
@@ -50,6 +51,14 @@
 (add-to-list 'load-path "/Users/tanner/.emacs.d/rust-mode-master")
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+;; In C, don't indent braces according to GNU style
+(setq c-default-style "linux"
+      c-basic-offset 4)
+
+;; In C, use C++ style comments (only supported fro C99 and beyond)
+(add-hook 'c-mode-hook (lambda () (setq comment-start "//"
+                                        comment-end   "")))
 
 ;; Enable shortcuts that are disabled by default
 (put 'narrow-to-region 'disabled nil)
