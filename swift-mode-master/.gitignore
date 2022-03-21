@@ -1,0 +1,6 @@
+*~
+/.eldev/
+*.elc
+/dist/
+swift-mode-autoloads.el
+swift-mode-pkg.el

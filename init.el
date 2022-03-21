@@ -48,9 +48,19 @@
     (lambda () (interactive) (previous-line 8)))
 
 ;; Rust Language support
-(add-to-list 'load-path "/Users/tanner/.emacs.d/rust-mode-master")
+(add-to-list 'load-path "~/.emacs.d/rust-mode-master")
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+;; Dart Language Support
+(add-to-list 'load-path "~/.emacs.d/dart-mode-main")
+(autoload 'dart-mode "dart-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
+
+;; Swift Language Support
+(add-to-list 'load-path "~/.emacs.d/swift-mode-master")
+(autoload 'swift-mode "swift-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode))
 
 ;; In C, don't indent braces according to GNU style
 (setq c-default-style "linux"
