@@ -10,18 +10,38 @@
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
 
+;; Don't try to perfrom slow operations on really long lines
+(global-so-long-mode 1)
+(setq so-long-threshold 4000)
+(setq so-long-max-lines 1000000)
+
 ;; Don't show menubar or toolbar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (customize-set-variable 'scroll-bar-mode nil)
 (customize-set-variable 'horizontal-scroll-bar-mode nil)
 
-;; Some Emacs-generated stuff to trust the naysayer theme
+;; Some trust and customize extensions
 (custom-set-variables
+ ;; Trust extension hashes
  '(custom-safe-themes
    '("399bce2ec203f474cdd3e4463863011dab044da9618b9f398785714d64e1cb1c" "d2e44214a7dc0bd5b298413ed6c3ba9719f1d96794d9de3bdf7a9808902fd098" default))
+
  '(linum-format " %5i ")
+
+ ;; so-long mode shouldn't set buffer as read-only
+ '(so-long-variable-overrides
+   '((bidi-inhibit-bpa . t)
+     (bidi-paragraph-direction . left-to-right)
+     (global-hl-line-mode)
+     (line-move-visual . t)
+     (show-paren-mode)
+     (truncate-lines)
+     (which-func-mode)))
+ 
  '(window-divider-mode t))
+
+;; Custom theme overrides
 (custom-set-faces
  '(window-divider ((t (:background "gray60" :foreground "gray80")))))
 
