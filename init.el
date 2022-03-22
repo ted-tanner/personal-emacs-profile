@@ -10,6 +10,9 @@
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
 
+;; Open shell (M-x shell RET) in current window
+(push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+
 ;; Don't try to perfrom slow operations on really long lines
 (global-so-long-mode 1)
 (setq so-long-threshold 4000)
