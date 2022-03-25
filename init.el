@@ -75,8 +75,13 @@
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
+;; Go Language support
+(add-to-list 'load-path "~/.emacs.d/go-mode-master")
+(autoload 'go-mode "go-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+
 ;; Dart Language Support
-(add-to-list 'load-path "~/.emacs.d/dart-mode-main")
+(add-to-list 'load-path "~/.emacs.d/dart-mode-master")
 (autoload 'dart-mode "dart-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
 
