@@ -70,6 +70,9 @@
 (global-set-key (kbd "M-p")
     (lambda () (interactive) (previous-line 8)))
 
+;; Bind C-i to imenu
+(global-set-key "\C-i" 'imenu)
+
 ;; Rust Language support
 (add-to-list 'load-path "~/.emacs.d/rust-mode-master")
 (autoload 'rust-mode "rust-mode" nil t)
