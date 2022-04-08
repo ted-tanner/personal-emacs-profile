@@ -15,7 +15,7 @@
 
 ;; Don't try to perfrom slow operations on really long lines
 (global-so-long-mode 1)
-(setq so-long-threshold 4000)
+(setq so-long-threshold 10000)
 (setq so-long-max-lines 1000000)
 
 ;; Don't show menubar or toolbar
