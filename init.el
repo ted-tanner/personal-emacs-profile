@@ -103,6 +103,9 @@
    "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
+;; Associate .env files with shell script maste mode
+(add-to-list 'auto-mode-alist '("\\.env\\'" . shell-script-mode))
+
 ;; In C, don't indent braces according to GNU style
 (setq c-default-style "linux"
       c-basic-offset 4)
