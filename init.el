@@ -114,3 +114,4 @@
 ;; Enable shortcuts that are disabled by default
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
