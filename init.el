@@ -10,6 +10,9 @@
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
 
+;; Indent with spaces, not tabs
+(setq-default indent-tabs-mode nil)
+
 ;; Open shell (M-x shell RET) in current window
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
