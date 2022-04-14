@@ -73,8 +73,11 @@
 (global-set-key (kbd "M-p")
     (lambda () (interactive) (previous-line 8)))
 
-;; Bind C-x j to imenu
+;; Bind C-x j to imenu (jump between function declarations)
 (global-set-key (kbd "C-x j") 'imenu)
+
+;; Bind C-x r to replace-string
+(global-set-key (kbd "C-x r") 'replace-string)
 
 ;; Rust Language support
 (add-to-list 'load-path "~/.emacs.d/rust-mode-master")
