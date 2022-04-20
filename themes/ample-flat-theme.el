@@ -65,7 +65,7 @@
       (ample/red "#ad8572")
       (ample/dark-red "#8d6552")
 
-      (ample/cursor "#afffef")
+      (ample/cursor "#5faf9f")
       (ample/fringe "#262424")
       (ample/region "#4c4848")
 
