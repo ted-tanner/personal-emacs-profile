@@ -1,6 +1,6 @@
 ;; Set theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'naysayer t)
+(load-theme 'ample-flat t)
 
 ;; Default window size
 (add-to-list 'default-frame-alist '(width . 160))
