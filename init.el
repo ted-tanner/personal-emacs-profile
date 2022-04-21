@@ -1,6 +1,10 @@
 ;; Set theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'ample-flat t)
+(load-theme 'deeper-blue t)
+
+; Stop Emacs from losing undo information by setting very high limits for undo buffers
+(setq undo-limit 20000000)
+(setq undo-strong-limit 40000000)
 
 ;; Default window size
 (add-to-list 'default-frame-alist '(width . 160))
@@ -54,6 +58,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(region ((t (:extend t :background "DodgerBlue4"))))
  '(window-divider ((t (:background "gray60" :foreground "gray80")))))
 
 ;; Don't poop backup files everywhere (put them in a system temp directory)
