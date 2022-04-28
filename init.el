@@ -79,9 +79,9 @@
 
 ;; Bind scroll 8 lines at a time to C-M-n and C-M-p
 (global-set-key (kbd "M-n")
-                (lambda () (interactive) (next-line 8)))
+                (lambda () (interactive) (forward-line 8)))
 (global-set-key (kbd "M-p")
-                (lambda () (interactive) (previous-line 8)))
+                (lambda () (interactive) (forward-line -8)))
 
 ;; Enable tab completion
 (setq tab-always-indent 'complete)
