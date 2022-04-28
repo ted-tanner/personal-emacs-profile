@@ -83,9 +83,12 @@
 (global-set-key (kbd "M-p")
                 (lambda () (interactive) (forward-line -8)))
 
-;; Enable tab completion
-(setq tab-always-indent 'complete)
-(setq completion-cycle-threshold 4)
+;; Enable primitive tab completion
+(global-set-key (kbd "<tab>") 'dabbrev-expand)
+;; Keep the default behavior in the minibuffer
+(add-hook 'minibuffer-setup-hook
+          (lambda ()
+            (local-set-key (kbd "<tab>") 'minibuffer-complete)))
 
 ;; Bind C-x j to imenu (jump between function declarations)
 (global-set-key (kbd "C-x j") 'imenu)
