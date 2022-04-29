@@ -83,12 +83,24 @@
 (global-set-key (kbd "M-p")
                 (lambda () (interactive) (forward-line -8)))
 
-;; Enable primitive tab completion
-(global-set-key (kbd "<tab>") 'dabbrev-expand)
-;; Keep the default behavior in the minibuffer
-(add-hook 'minibuffer-setup-hook
-          (lambda ()
-            (local-set-key (kbd "<tab>") 'minibuffer-complete)))
+;; Be intelligent when using tab to indent or autocomplete
+(defun indenting-and-completing-tab ()
+  "Will indent if cursor is at beginning of a line, in the middle of a
+word, or if a region is selected. Otherwise, it will use dabbrev-expand
+to auto-complete. It leaves shells and the minibuffer alone."
+  (interactive)
+  (if (string-match "Minibuf" (buffer-name))
+      (minibuffer-complete)
+    (if (derived-mode-p 'comint-mode)
+        (completion-at-point)
+      (if mark-active
+          (indent-region (region-beginning)
+                         (region-end))
+        (if (looking-at "\\>")
+            (dabbrev-expand nil)
+          (indent-for-tab-command))))))
+
+(global-set-key (kbd "<tab>") 'indenting-and-completing-tab)
 
 ;; Bind C-x j to imenu (jump between function declarations)
 (global-set-key (kbd "C-x j") 'imenu)
