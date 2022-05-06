@@ -17,7 +17,7 @@
 ;; Indent with spaces, not tabs
 (setq-default indent-tabs-mode nil)
 
-;; Open shell (M-x shell RET) in current window
+;; Open shell in current window
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
 ;; Don't try to perfrom slow operations on really long lines
@@ -83,6 +83,18 @@
 (global-set-key (kbd "M-p")
                 (lambda () (interactive) (forward-line -8)))
 
+;; C-c M-o should clear buffer in Eshell
+(defun eshell-clear-buffer ()
+  "Clear Eshell buffer"
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (eshell-send-input)))
+
+(add-hook 'eshell-mode-hook
+          '(lambda()
+             (local-set-key (kbd "C-c M-o") 'eshell-clear-buffer)))
+
 ;; Be intelligent when using tab to indent or autocomplete
 (defun indenting-and-completing-tab ()
   "Will indent if cursor is at beginning of a line, in the middle of a
@@ -91,7 +103,7 @@ to auto-complete. It leaves shells and the minibuffer alone."
   (interactive)
   (if (string-match "Minibuf" (buffer-name))
       (minibuffer-complete)
-    (if (derived-mode-p 'comint-mode)
+    (if (or (derived-mode-p 'comint-mode) (derived-mode-p 'eshell-mode))
         (completion-at-point)
       (if mark-active
           (indent-region (region-beginning)
