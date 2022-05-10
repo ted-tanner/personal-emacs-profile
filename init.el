@@ -164,9 +164,9 @@ to auto-complete. It leaves shells and the minibuffer alone."
 (setq c-default-style "linux"
       c-basic-offset 4)
 
-;; In C, use C++ style comments (only supported fro C99 and beyond)
+;; In C, use C++ style comments (only supported for C99 and beyond)
 (add-hook 'c-mode-hook (lambda () (setq comment-start "//"
-                                        comment-end   "")))
+                                        comment-end "")))
 
 ;; Display init time on startup
 (defun display-startup-echo-area-message ()
