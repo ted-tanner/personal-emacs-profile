@@ -165,6 +165,10 @@ to auto-complete. It leaves shells and the minibuffer alone."
 (add-hook 'c-mode-hook (lambda () (setq comment-start "//"
                                         comment-end   "")))
 
+;; Display init time on startup
+(defun display-startup-echo-area-message ()
+  (message (concat "Startup time: " (emacs-init-time))))
+
 ;; Enable shortcuts that are disabled by default
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
