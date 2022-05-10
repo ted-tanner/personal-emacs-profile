@@ -17,6 +17,7 @@
 ;; Enable Ido mode and set <tab> to cycle through options
 (ido-mode t)
 (define-key ido-file-completion-map (kbd "<tab>") 'ido-next-match)
+(define-key ido-buffer-completion-map (kbd "<tab>") 'ido-next-match)
 
 ;; Indent with spaces, not tabs
 (setq-default indent-tabs-mode nil)
