@@ -124,6 +124,9 @@ to auto-complete. It leaves shells and the minibuffer alone."
 ;; Bind C-x r to replace-string
 (global-set-key (kbd "C-x r") 'replace-string)
 
+;; Bind C-<tab> to cycle through buffers
+(global-set-key (kbd "C-<tab>") 'next-buffer)
+
 ;; Rust Language support
 (add-to-list 'load-path "~/.emacs.d/rust-mode-master")
 (autoload 'rust-mode "rust-mode" nil t)
