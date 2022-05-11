@@ -150,6 +150,11 @@ to auto-complete. It leaves shells and the minibuffer alone."
 (autoload 'swift-mode "swift-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode))
 
+;; Kotlin Language Support
+(add-to-list 'load-path "~/.emacs.d/kotlin-mode-master")
+(autoload 'kotlin-mode "kotlin-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
+
 ;; Markdown support
 (add-to-list 'load-path "~/.emacs.d/markdown-mode-master")
 (autoload 'markdown-mode "markdown-mode"
