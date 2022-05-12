@@ -6,4 +6,6 @@ eshell/
 
 ido.last
 
+**/*.elc
+
 **/*~
