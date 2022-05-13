@@ -99,7 +99,7 @@
     (eshell-send-input)))
 
 (add-hook 'eshell-mode-hook
-          '(lambda()
+          (lambda()
              (local-set-key (kbd "C-c M-o") 'eshell-clear-buffer)))
 
 ;; Be intelligent when using tab to indent or autocomplete
@@ -120,6 +120,9 @@ to auto-complete. It leaves shells and the minibuffer alone."
           (indent-for-tab-command))))))
 
 (global-set-key (kbd "<tab>") 'indenting-and-completing-tab)
+
+;; Bind C-c C-q to quick-calc
+;; (global-set-key (kbd "C-c C-q") 'quick-calc)
 
 ;; Bind C-x j to imenu (jump between function declarations)
 (global-set-key (kbd "C-x j") 'imenu)
