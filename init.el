@@ -14,6 +14,9 @@
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
 
+;; Show column number
+(setq column-number-mode t)
+
 ;; Enable Ido mode and set <tab> (and Shift-<tab>) to cycle through options
 (ido-mode t)
 (define-key ido-file-completion-map (kbd "<tab>") #'ido-next-match)
