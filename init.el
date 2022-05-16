@@ -122,7 +122,7 @@ to auto-complete. It leaves shells and the minibuffer alone."
 (global-set-key (kbd "<tab>") 'indenting-and-completing-tab)
 
 ;; Bind C-c C-q to quick-calc
-;; (global-set-key (kbd "C-c C-q") 'quick-calc)
+(global-set-key (kbd "C-c C-q") 'quick-calc)
 
 ;; Bind C-x j to imenu (jump between function declarations)
 (global-set-key (kbd "C-x j") 'imenu)
