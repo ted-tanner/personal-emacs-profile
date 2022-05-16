@@ -16,10 +16,10 @@
 
 ;; Enable Ido mode and set <tab> (and Shift-<tab>) to cycle through options
 (ido-mode t)
-(define-key ido-file-completion-map (kbd "<tab>") 'ido-next-match)
-(define-key ido-buffer-completion-map (kbd "<tab>") 'ido-next-match)
-(define-key ido-file-completion-map (kbd "<S-tab>") 'ido-prev-match)
-(define-key ido-buffer-completion-map (kbd "<S-tab>") 'ido-prev-match)
+(define-key ido-file-completion-map (kbd "<tab>") #'ido-next-match)
+(define-key ido-buffer-completion-map (kbd "<tab>") #'ido-next-match)
+(define-key ido-file-completion-map (kbd "<S-tab>") #'ido-prev-match)
+(define-key ido-buffer-completion-map (kbd "<S-tab>") #'ido-prev-match)
 
 ;; Indent with spaces, not tabs
 (setq-default indent-tabs-mode nil)
@@ -81,8 +81,8 @@
 (add-hook 'term-mode-hook
           (lambda ()
             (term-set-escape-char ?\C-x)
-            (define-key term-raw-map "\M-y" 'yank-pop)
-            (define-key term-raw-map "\M-w" 'kill-ring-save)))
+            (define-key term-raw-map "\M-y" #'yank-pop)
+            (define-key term-raw-map "\M-w" #'kill-ring-save)))
 
 ;; Bind scroll 8 lines at a time to C-M-n and C-M-p
 (global-set-key (kbd "M-n")
@@ -100,7 +100,7 @@
 
 (add-hook 'eshell-mode-hook
           (lambda()
-             (local-set-key (kbd "C-c M-o") 'eshell-clear-buffer)))
+             (local-set-key (kbd "C-c M-o") #'eshell-clear-buffer)))
 
 ;; Be intelligent when using tab to indent or autocomplete
 (defun indenting-and-completing-tab ()
@@ -119,19 +119,21 @@ to auto-complete. It leaves shells and the minibuffer alone."
             (dabbrev-expand nil)
           (indent-for-tab-command))))))
 
-(global-set-key (kbd "<tab>") 'indenting-and-completing-tab)
+(global-set-key (kbd "<tab>") #'indenting-and-completing-tab)
 
-;; Bind C-c C-q to quick-calc
-(global-set-key (kbd "C-c C-q") 'quick-calc)
+;; Bind C-c C-q to quick-calc (override the key binding for C mode)
+(global-set-key (kbd "C-c C-q") #'quick-calc)
+(add-hook 'c-mode-hook
+          (lambda () (local-set-key (kbd "C-c C-q") #'quick-calc)))
 
 ;; Bind C-x j to imenu (jump between function declarations)
-(global-set-key (kbd "C-x j") 'imenu)
+(global-set-key (kbd "C-x j") #'imenu)
 
 ;; Bind C-x r to replace-string
-(global-set-key (kbd "C-x r") 'replace-string)
+(global-set-key (kbd "C-x r") #'replace-string)
 
 ;; Bind C-<tab> to cycle through buffers
-(global-set-key (kbd "C-<tab>") 'next-buffer)
+(global-set-key (kbd "C-<tab>") #'next-buffer)
 
 ;; Rust Language support
 (add-to-list 'load-path "~/.emacs.d/rust-mode-master")
