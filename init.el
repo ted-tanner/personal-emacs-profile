@@ -1,10 +1,10 @@
 ;; Minimize garbage collection during startup
 (setq gc-cons-threshold most-positive-fixnum)
 
-;; Lower threshold back to 8 MiB (default is 800kB)
+;; Lower GC threshold back to a reasonable value
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (setq gc-cons-threshold (expt 2 23))))
+            (setq gc-cons-threshold (* 40 1024 1024))))
 
 ;; Set theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
