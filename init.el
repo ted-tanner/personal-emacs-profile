@@ -1,3 +1,11 @@
+;; Minimize garbage collection during startup
+(setq gc-cons-threshold most-positive-fixnum)
+
+;; Lower threshold back to 8 MiB (default is 800kB)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (expt 2 23))))
+
 ;; Set theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'deeper-blue t)
@@ -103,7 +111,7 @@
 
 (add-hook 'eshell-mode-hook
           (lambda()
-             (local-set-key (kbd "C-c M-o") #'eshell-clear-buffer)))
+            (local-set-key (kbd "C-c M-o") #'eshell-clear-buffer)))
 
 ;; Be intelligent when using tab to indent or autocomplete
 (defun indenting-and-completing-tab ()
