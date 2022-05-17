@@ -200,6 +200,24 @@ to auto-complete. It leaves shells and the minibuffer alone."
 (add-hook 'c-mode-hook (lambda () (setq comment-start "//"
                                         comment-end "")))
 
+;; Some functions for seeing garbage collection information
+(defun report-gc-elapsed-time ()
+  "Reports how much time has been spent doing garbage collection in the current session"
+  (interactive)
+  (message (format "Spent a total of %.4f seconds in the garbage collector during this session"
+                   gc-elapsed)))
+
+(defun report-gc-count ()
+  "Reports how many times the garbage collector has been run during the current session"
+  (interactive)
+  (message (format "%d garbage collection(s) during this session" gcs-done)))
+
+(defun report-avg-time-per-gc ()
+  "Reports how long, on average, each garbage collection has taken during this session"
+  (interactive)
+  (message (format "Garbage collections have taken an average of %.4f seconds during this session"
+                   (/ gc-elapsed gcs-done))))
+ 
 ;; Display init time on startup
 (defun display-startup-echo-area-message ()
   (message (concat "Startup time: " (emacs-init-time))))
