@@ -81,9 +81,9 @@
 
 ;; Don't poop backup files everywhere (put them in a system temp directory)
 (setq backup-directory-alist
-      `((".*" . temporary-file-directory)))
+      `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
-      `((".*" temporary-file-directory t)))
+      `((".*" ,temporary-file-directory t)))
 
 ;; Automatically revert buffers when changed on disk
 (global-auto-revert-mode 1)
@@ -218,7 +218,7 @@ the minibuffer alone."
   (interactive)
   (message (format "Garbage collections have taken an average of %.4f seconds during this session"
                    (/ gc-elapsed gcs-done))))
- 
+
 ;; Display init time on startup
 (defun display-startup-echo-area-message ()
   (message (concat "Startup time: " (emacs-init-time))))
