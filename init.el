@@ -81,9 +81,9 @@
 
 ;; Don't poop backup files everywhere (put them in a system temp directory)
 (setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
+      `((".*" . temporary-file-directory)))
 (setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+      `((".*" temporary-file-directory t)))
 
 ;; Automatically revert buffers when changed on disk
 (global-auto-revert-mode 1)
@@ -123,9 +123,10 @@
 
 ;; Be intelligent when using tab to indent or autocomplete
 (defun indenting-and-completing-tab ()
-  "Will indent if cursor is at beginning of a line, in the middle of a
-word, or if a region is selected. Otherwise, it will use dabbrev-expand
-to auto-complete. It leaves shells and the minibuffer alone."
+  "Will indent if cursor is at beginning of a line, or if a region is
+selected, or if it otherwise makes sense to indent rather than autocomplete.
+Otherwise, it will use dabbrev-expand to auto-complete. It leaves shells and
+the minibuffer alone."
   (interactive)
   (if (string-match "Minibuf" (buffer-name))
       (minibuffer-complete)
