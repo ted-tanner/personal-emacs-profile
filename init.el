@@ -35,8 +35,9 @@
 ;; Indent with spaces, not tabs
 (setq-default indent-tabs-mode nil)
 
-;; Open shell in current window
+;; Open shell and buffer list in current window
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+(push (cons "\\*Buffer List\\*" display-buffer--same-window-action) display-buffer-alist)
 
 ;; Don't try to perfrom slow operations on really long lines
 (global-so-long-mode 1)
