@@ -142,6 +142,9 @@ the minibuffer alone."
 
 (global-set-key (kbd "<tab>") #'indenting-and-completing-tab)
 
+;; dabbrev-expand should be case-sensitive
+(setq dabbrev-case-fold-search nil)
+
 ;; Bind C-c C-q to quick-calc (override the key binding for C mode)
 (global-set-key (kbd "C-c C-q") #'quick-calc)
 (add-hook 'c-mode-hook
@@ -223,6 +226,21 @@ the minibuffer alone."
 ;; Display init time on startup
 (defun display-startup-echo-area-message ()
   (message (concat "Startup time: " (emacs-init-time))))
+
+;; Create function for simultaneously renaming file and buffer
+(defun rename-file-and-buffer (new-name)
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "No file associated with buffer '%s'" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists" new-name)
+        (progn
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
 
 ;; Enable shortcuts that are disabled by default
 (put 'narrow-to-region 'disabled nil)
