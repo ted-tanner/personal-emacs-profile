@@ -365,11 +365,11 @@
     (beginning-of-line)
     (looking-at (format ".*%s.*" pattern))))
 
-(defun kotlin-mode--line-continuation()
+(defun kotlin-mode--line-continuation ()
   "Return whether this line continues a statement in the previous line"
   (or
    (and (kotlin-mode--prev-line-begins
-         "\\(\\([\\\\}]*[ \t]*\\(if\\|else\\)\\)\\|\\(if\\|else\\|for\\|while\\)\\)[ \t]*")
+         "\\(\\([\\\\}]*[ \t]*else\\)\\|\\(if\\|else\\|for\\|while\\)\\)[ \t]*")
         (not (kotlin-mode--prev-line-ends "{.*")))
    (or
     (kotlin-mode--line-begins
