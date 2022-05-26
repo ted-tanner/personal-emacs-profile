@@ -80,7 +80,8 @@
  '(region ((t (:extend t :background "DodgerBlue4"))))
  '(window-divider ((t (:background "gray60" :foreground "gray80")))))
 
-;; Don't poop backup files everywhere (put them in a system temp directory)
+;; Don't poop backup files everywhere (put them in a temp directory)
+(setq temporary-file-directory "~/.emacs/.tmp/")
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
