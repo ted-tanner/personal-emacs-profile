@@ -87,6 +87,10 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; Put lock files in a temp directory as well
+(setq lock-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ;; Automatically revert buffers when changed on disk
 (global-auto-revert-mode 1)
 
