@@ -102,18 +102,8 @@
             (define-key term-raw-map "\M-w" #'kill-ring-save)))
 
 ;; Bind scroll 8 lines at a time to M-n and M-p
-(global-set-key (kbd "M-n")
-                (lambda () (interactive) (forward-line 8)))
-(global-set-key (kbd "M-p")
-                (lambda () (interactive) (forward-line -8)))
-
-;; Make sure M-n and M-p work to jump in Eww mode too
-(add-hook 'eww-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-n")
-                           (lambda () (interactive) (forward-line 8)))
-            (local-set-key (kbd "M-p")
-                           (lambda () (interactive) (forward-line -8)))))
+(global-set-key (kbd "M-n") #'forward-paragraph)
+(global-set-key (kbd "M-p") #'backward-paragraph)
 
 ;; C-c M-o should clear buffer in Eshell
 (defun eshell-clear-buffer ()
