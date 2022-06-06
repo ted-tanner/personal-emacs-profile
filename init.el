@@ -44,6 +44,9 @@
 (setq so-long-threshold 10000)
 (setq so-long-max-lines 1000000)
 
+;; Always accept 'y' or 'n' instead of requiring 'yes' or 'no'
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Don't show menubar or toolbar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -81,7 +84,7 @@
  '(window-divider ((t (:background "gray60" :foreground "gray80")))))
 
 ;; Don't poop backup files everywhere (put them in a temp directory)
-(setq temporary-file-directory "~/.emacs/.tmp/")
+(setq temporary-file-directory "~/.emacs.d/.tmp/")
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
