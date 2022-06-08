@@ -108,6 +108,15 @@
 (global-set-key (kbd "M-n") #'forward-paragraph)
 (global-set-key (kbd "M-p") #'backward-paragraph)
 
+;; Bind M-n and M-p to scroll in shell mode, too. Use M-N and M-P
+;; for command-line history.
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-n") #'forward-paragraph)
+            (local-set-key (kbd "M-p") #'backward-paragraph)
+            (local-set-key (kbd "M-N") #'comint-next-input)
+            (local-set-key (kbd "M-P") #'comint-previous-input)))
+
 ;; C-c M-o should clear buffer in Eshell
 (defun eshell-clear-buffer ()
   "Clear Eshell buffer"
