@@ -45,7 +45,7 @@
 (setq so-long-max-lines 1000000)
 
 ;; Always accept 'y' or 'n' instead of requiring 'yes' or 'no'
-(defalias 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p #'y-or-n-p)
 
 ;; Don't show menubar or toolbar
 (menu-bar-mode -1)
