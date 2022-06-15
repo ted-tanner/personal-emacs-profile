@@ -113,18 +113,37 @@
             (local-set-key (kbd "M-y") #'yank-pop)
             (local-set-key (kbd "M-w") #'kill-ring-save)))
 
-;; Bind scroll 8 lines at a time to M-n and M-p
-(global-set-key (kbd "M-n") #'forward-paragraph)
-(global-set-key (kbd "M-p") #'backward-paragraph)
+;; Bind scroll 6 lines at a time to M-n and M-p. If prog-mode, remap
+;; to forward-paragraph and backward-paragraph respectively
+(defun jump-multiple-lines-forward ()
+  (interactive)
+  (forward-line 6))
 
-;; Bind M-n and M-p to scroll in shell mode, too. Use M-N and M-P
-;; for command-line history.
-(add-hook 'shell-mode-hook
+(defun jump-multiple-lines-backward ()
+  (interactive)
+  (forward-line -6))
+
+(global-set-key (kbd "M-n") #'jump-multiple-lines-forward)
+(global-set-key (kbd "M-p") #'jump-multiple-lines-backward)
+
+(add-hook 'prog-mode-hook
           (lambda ()
             (local-set-key (kbd "M-n") #'forward-paragraph)
-            (local-set-key (kbd "M-p") #'backward-paragraph)
+            (local-set-key (kbd "M-p") #'backward-paragraph)))
+
+;; Respect M-n and M-p key bindings in shell and eww modes. For shell mode,
+;; remap next and previous command scrolling to M-N and M-P respectively
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-n") #'jump-multiple-lines-forward)
+            (local-set-key (kbd "M-p") #'jump-multiple-lines-backward)
             (local-set-key (kbd "M-N") #'comint-next-input)
             (local-set-key (kbd "M-P") #'comint-previous-input)))
+
+(add-hook 'eww-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-n") #'jump-multiple-lines-forward)
+            (local-set-key (kbd "M-p") #'jump-multiple-lines-backward)))
 
 ;; C-c M-o should clear buffer in Eshell
 (defun eshell-clear-buffer ()
