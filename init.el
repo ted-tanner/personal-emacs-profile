@@ -19,6 +19,9 @@
 (add-to-list 'default-frame-alist '(height . 50))
 (set-frame-position (selected-frame) 240 120)
 
+;; Use M-<arrow> to navigate directionally between frames
+(windmove-default-keybindings 'meta)
+
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
 
