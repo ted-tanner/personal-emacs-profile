@@ -35,6 +35,9 @@
 (define-key ido-file-completion-map (kbd "<S-tab>") #'ido-prev-match)
 (define-key ido-buffer-completion-map (kbd "<S-tab>") #'ido-prev-match)
 
+(defun ido-kill-emacs-hook ()
+  (ignore-errors (ido-save-history)))
+
 ;; Indent with spaces, not tabs
 (setq-default indent-tabs-mode nil)
 
@@ -94,8 +97,11 @@
       `((".*" ,temporary-file-directory t)))
 
 ;; Put lock files in a temp directory as well
-(setq lock-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+;; (setq lock-file-name-transforms
+;;       `((".*" ,temporary-file-directory t)))
+
+;; Disable lock files altogether
+(setq create-lockfiles nil)
 
 ;; Automatically revert buffers when changed on disk
 (global-auto-revert-mode 1)
