@@ -14,12 +14,15 @@
 (setq undo-limit (* 20 1024 1024))
 (setq undo-strong-limit (* 20 1024 1024))
 
-;; Default window size
+;; Default frame size
 (add-to-list 'default-frame-alist '(width . 160))
 (add-to-list 'default-frame-alist '(height . 50))
 (set-frame-position (selected-frame) 240 120)
 
-;; Use M-<arrow> to navigate directionally between frames
+;; Open two windows at startup
+(split-window-horizontally)
+
+;; Use M-<arrow> to navigate directionally between windows
 (windmove-default-keybindings 'meta)
 
 ;; Don't show Emacs welcome screen
