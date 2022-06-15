@@ -101,8 +101,8 @@
 (add-hook 'term-mode-hook
           (lambda ()
             (term-set-escape-char ?\C-x)
-            (define-key term-raw-map "\M-y" #'yank-pop)
-            (define-key term-raw-map "\M-w" #'kill-ring-save)))
+            (local-set-key (kbd "M-y") #'yank-pop)
+            (local-set-key (kbd "M-w") #'kill-ring-save)))
 
 ;; Bind scroll 8 lines at a time to M-n and M-p
 (global-set-key (kbd "M-n") #'forward-paragraph)
@@ -221,18 +221,21 @@ the minibuffer alone."
 
 ;; Some functions for seeing garbage collection information
 (defun report-gc-elapsed-time ()
-  "Reports how much time has been spent doing garbage collection in the current session"
+  "Reports how much time has been spent doing garbage collection in the
+   current session"
   (interactive)
   (message (format "Spent a total of %.4f seconds in the garbage collector during this session"
                    gc-elapsed)))
 
 (defun report-gc-count ()
-  "Reports how many times the garbage collector has been run during the current session"
+  "Reports how many times the garbage collector has been run during the
+   current session"
   (interactive)
   (message (format "%d garbage collection(s) during this session" gcs-done)))
 
 (defun report-avg-time-per-gc ()
-  "Reports how long, on average, each garbage collection has taken during this session"
+  "Reports how long, on average, each garbage collection has taken during
+   this session"
   (interactive)
   (message (format "Garbage collections have taken an average of %.4f seconds during this session"
                    (/ gc-elapsed gcs-done))))
