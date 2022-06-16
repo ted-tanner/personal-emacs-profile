@@ -183,13 +183,6 @@ the minibuffer alone."
 ;; dabbrev-expand should be case-sensitive
 (setq dabbrev-case-fold-search nil)
 
-;; Automatically delete trailing whitespace when in prog-mode
-(defun remove-trailing-whitespace-from-lines ()
-  (when (derived-mode-p 'prog-mode)
-    (delete-trailing-whitespace)))
-
-(add-hook 'before-save-hook #'remove-trailing-whitespace-from-lines)
-
 ;; Bind C-c C-q to quick-calc (override the key binding for C mode)
 (global-set-key (kbd "C-c C-q") #'quick-calc)
 (add-hook 'c-mode-hook
