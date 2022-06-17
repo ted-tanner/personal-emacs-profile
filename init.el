@@ -1,10 +1,12 @@
 ;; Minimize garbage collection during startup
 (setq gc-cons-threshold most-positive-fixnum)
 
-;; Lower GC threshold back to a reasonable value
+;; Lower GC threshold back to a reasonable value. Also, split frame into
+;; two windows
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (setq gc-cons-threshold (* 40 1024 1024))))
+            (setq gc-cons-threshold (* 40 1024 1024))
+            (split-window-horizontally)))
 
 ;; Set theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
@@ -18,9 +20,6 @@
 (add-to-list 'default-frame-alist '(width . 160))
 (add-to-list 'default-frame-alist '(height . 50))
 (set-frame-position (selected-frame) 240 120)
-
-;; Open two windows at startup
-(split-window-horizontally)
 
 ;; Use M-<arrow> to navigate directionally between windows
 (windmove-default-keybindings 'meta)
