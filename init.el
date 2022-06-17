@@ -134,8 +134,9 @@
             (local-set-key (kbd "M-n") #'forward-paragraph)
             (local-set-key (kbd "M-p") #'backward-paragraph)))
 
-;; Respect M-n and M-p key bindings in shell and eww modes. For shell mode,
-;; remap next and previous command scrolling to M-N and M-P respectively
+;; Respect M-n and M-p key bindings in shell, eww, and occur modes. For
+;; shell mode, remap next and previous command scrolling to M-N and M-P
+;; respectively
 (add-hook 'shell-mode-hook
           (lambda ()
             (local-set-key (kbd "M-n") #'jump-multiple-lines-forward)
@@ -144,6 +145,11 @@
             (local-set-key (kbd "M-P") #'comint-previous-input)))
 
 (add-hook 'eww-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-n") #'jump-multiple-lines-forward)
+            (local-set-key (kbd "M-p") #'jump-multiple-lines-backward)))
+
+(add-hook 'occur-mode-hook
           (lambda ()
             (local-set-key (kbd "M-n") #'jump-multiple-lines-forward)
             (local-set-key (kbd "M-p") #'jump-multiple-lines-backward)))
@@ -182,6 +188,14 @@ the minibuffer alone."
 
 ;; dabbrev-expand should be case-sensitive
 (setq dabbrev-case-fold-search nil)
+
+;; Search in all buffers
+(defun search-in-all-buffers (regexp &optional allbufs)
+  (interactive (occur-read-primary-args))
+  (if (not (multi-occur-in-matching-buffers "." regexp allbufs))
+      (other-window 1)))
+
+(global-set-key (kbd "M-s") 'search-in-all-buffers)
 
 ;; Bind C-c C-q to quick-calc (override the key binding for C mode)
 (global-set-key (kbd "C-c C-q") #'quick-calc)
