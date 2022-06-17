@@ -298,6 +298,7 @@ the minibuffer alone."
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
+(fset 'rename-buffer-and-file (symbol-function 'rename-file-and-buffer))
 
 ;; Enable shortcuts that are disabled by default
 (put 'narrow-to-region 'disabled nil)
