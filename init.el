@@ -28,6 +28,9 @@
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
 
+;; Use ibuffer instead of buffer list
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 ;; Show column number
 (setq column-number-mode t)
 
