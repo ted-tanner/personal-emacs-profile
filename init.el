@@ -30,6 +30,9 @@
 ;; Use ibuffer instead of buffer list
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; Use ~/.emacs.d/desktops to save desktops
+(setq desktop-path '("~/.emacs.d/desktops"))
+
 ;; Show column number
 (setq column-number-mode t)
 
