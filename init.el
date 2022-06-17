@@ -214,32 +214,32 @@ the minibuffer alone."
 (global-set-key (kbd "C-<tab>") #'next-buffer)
 
 ;; Rust Language support
-(add-to-list 'load-path "~/.emacs.d/rust-mode-master")
+(add-to-list 'load-path "~/.emacs.d/master-modes/rust-mode-master")
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
 ;; Go Language support
-(add-to-list 'load-path "~/.emacs.d/go-mode-master")
+(add-to-list 'load-path "~/.emacs.d/master-modes/go-mode-master")
 (autoload 'go-mode "go-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
 ;; Dart Language Support
-(add-to-list 'load-path "~/.emacs.d/dart-mode-master")
+(add-to-list 'load-path "~/.emacs.d/master-modes/dart-mode-master")
 (autoload 'dart-mode "dart-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
 
 ;; Swift Language Support
-(add-to-list 'load-path "~/.emacs.d/swift-mode-master")
+(add-to-list 'load-path "~/.emacs.d/master-modes/swift-mode-master")
 (autoload 'swift-mode "swift-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode))
 
 ;; Kotlin Language Support
-(add-to-list 'load-path "~/.emacs.d/kotlin-mode-master")
+(add-to-list 'load-path "~/.emacs.d/master-modes/kotlin-mode-master")
 (autoload 'kotlin-mode "kotlin-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
 
 ;; Markdown support
-(add-to-list 'load-path "~/.emacs.d/markdown-mode-master")
+(add-to-list 'load-path "~/.emacs.d/master-modes/markdown-mode-master")
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist
