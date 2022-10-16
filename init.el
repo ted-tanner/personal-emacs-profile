@@ -260,8 +260,11 @@ the minibuffer alone."
   "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
-;; Associate .env files with shell script maste mode
+;; Associate .env files with shell script master mode
 (add-to-list 'auto-mode-alist '("\\.env\\'" . shell-script-mode))
+
+;; Associate .pl files with prolog-mode instead of perl-mode
+(add-to-list 'auto-mode-alist '("\\.\\(pl\\|pro\\|lgt\\)" . prolog-mode))
 
 ;; In C, don't indent braces according to GNU style
 (setq c-default-style "linux"
