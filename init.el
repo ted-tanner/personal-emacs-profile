@@ -121,11 +121,6 @@
             (local-set-key (kbd "M-y") #'yank-pop)
             (local-set-key (kbd "M-w") #'kill-ring-save)))
 
-;; Bind next/previous-error to M-} and M-{
-
-(global-set-key (kbd "M-}") #'next-error)
-(global-set-key (kbd "M-{") #'previous-error)
-
 ;; Bind scroll 6 lines at a time to M-n and M-p. If prog-mode, remap
 ;; to forward-paragraph and backward-paragraph respectively
 (defun jump-multiple-lines-forward ()
