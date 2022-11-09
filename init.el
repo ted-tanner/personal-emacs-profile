@@ -244,11 +244,6 @@ the minibuffer alone."
 (autoload 'kotlin-mode "kotlin-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
 
-;; Haskell Language Support
-(add-to-list 'load-path "~/.emacs.d/master-modes/haskell-mode-master")
-(require 'haskell-mode-autoloads)
-(add-to-list 'Info-default-directory-list "~/.emacs.d/master-modes/haskell-mode-master")
-
 ;; Markdown support
 (add-to-list 'load-path "~/.emacs.d/master-modes/markdown-mode-master")
 (autoload 'markdown-mode "markdown-mode"
