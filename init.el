@@ -36,9 +36,6 @@
 ;; Show column number
 (setq column-number-mode t)
 
-;; Truncate long lines by default
-(set-default 'truncate-lines t)
-
 ;; Enable Ido mode and set <tab> (and Shift-<tab>) to cycle through options
 (ido-mode t)
 (define-key ido-file-completion-map (kbd "<tab>") #'ido-next-match)
