@@ -139,26 +139,6 @@
             (local-set-key (kbd "M-n") #'forward-paragraph)
             (local-set-key (kbd "M-p") #'backward-paragraph)))
 
-;; Respect M-n and M-p key bindings in shell, eww, and occur modes. For
-;; shell mode, remap next and previous command scrolling to M-N and M-P
-;; respectively
-(add-hook 'shell-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-n") #'jump-multiple-lines-forward)
-            (local-set-key (kbd "M-p") #'jump-multiple-lines-backward)
-            (local-set-key (kbd "M-N") #'comint-next-input)
-            (local-set-key (kbd "M-P") #'comint-previous-input)))
-
-(add-hook 'eww-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-n") #'jump-multiple-lines-forward)
-            (local-set-key (kbd "M-p") #'jump-multiple-lines-backward)))
-
-(add-hook 'occur-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-n") #'jump-multiple-lines-forward)
-            (local-set-key (kbd "M-p") #'jump-multiple-lines-backward)))
-
 ;; C-c M-o should clear buffer in Eshell
 (defun eshell-clear-buffer ()
   "Clear Eshell buffer"
@@ -243,6 +223,11 @@ the minibuffer alone."
 (add-to-list 'load-path "~/.emacs.d/master-modes/kotlin-mode-master")
 (autoload 'kotlin-mode "kotlin-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
+
+;; PHP Language support
+(add-to-list 'load-path "~/.emacs.d/master-modes/php-mode-master")
+(autoload 'php-mode "php-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 ;; Markdown support
 (add-to-list 'load-path "~/.emacs.d/master-modes/markdown-mode-master")
