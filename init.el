@@ -27,6 +27,52 @@
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
 
+;; Rust Language support
+(add-to-list 'load-path "~/.emacs.d/master-modes/rust-mode-master")
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+;; Go Language support
+(add-to-list 'load-path "~/.emacs.d/master-modes/go-mode-master")
+(autoload 'go-mode "go-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+
+;; Dart Language Support
+(add-to-list 'load-path "~/.emacs.d/master-modes/dart-mode-master")
+(autoload 'dart-mode "dart-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
+
+;; Swift Language Support
+(add-to-list 'load-path "~/.emacs.d/master-modes/swift-mode-master")
+(autoload 'swift-mode "swift-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode))
+
+;; Kotlin Language Support
+(add-to-list 'load-path "~/.emacs.d/master-modes/kotlin-mode-master")
+(autoload 'kotlin-mode "kotlin-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
+
+;; PHP Language support
+(add-to-list 'load-path "~/.emacs.d/master-modes/php-mode-master")
+(autoload 'php-mode "php-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+
+;; Markdown support
+(add-to-list 'load-path "~/.emacs.d/master-modes/markdown-mode-master")
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist
+             '("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'" . markdown-mode))
+(autoload 'gfm-mode "markdown-mode"
+  "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+;; Associate .env files with shell script master mode
+(add-to-list 'auto-mode-alist '("\\.env\\'" . shell-script-mode))
+
+;; Associate .pl files with prolog-mode instead of perl-mode
+(add-to-list 'auto-mode-alist '("\\.\\(pl\\|pro\\|lgt\\)" . prolog-mode))
+
 ;; Use ibuffer instead of buffer list
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -170,6 +216,8 @@ the minibuffer alone."
           (indent-for-tab-command))))))
 
 (global-set-key (kbd "<tab>") #'indenting-and-completing-tab)
+(add-hook 'php-mode-hook
+          (lambda () (local-set-key (kbd "<tab>") #'indenting-and-completing-tab)))
 
 ;; dabbrev-expand should be case-sensitive
 (setq dabbrev-case-fold-search nil)
@@ -198,52 +246,6 @@ the minibuffer alone."
 
 ;; Bind C-<tab> to cycle through buffers
 (global-set-key (kbd "C-<tab>") #'next-buffer)
-
-;; Rust Language support
-(add-to-list 'load-path "~/.emacs.d/master-modes/rust-mode-master")
-(autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-
-;; Go Language support
-(add-to-list 'load-path "~/.emacs.d/master-modes/go-mode-master")
-(autoload 'go-mode "go-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-
-;; Dart Language Support
-(add-to-list 'load-path "~/.emacs.d/master-modes/dart-mode-master")
-(autoload 'dart-mode "dart-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
-
-;; Swift Language Support
-(add-to-list 'load-path "~/.emacs.d/master-modes/swift-mode-master")
-(autoload 'swift-mode "swift-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode))
-
-;; Kotlin Language Support
-(add-to-list 'load-path "~/.emacs.d/master-modes/kotlin-mode-master")
-(autoload 'kotlin-mode "kotlin-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
-
-;; PHP Language support
-(add-to-list 'load-path "~/.emacs.d/master-modes/php-mode-master")
-(autoload 'php-mode "php-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
-
-;; Markdown support
-(add-to-list 'load-path "~/.emacs.d/master-modes/markdown-mode-master")
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist
-             '("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'" . markdown-mode))
-(autoload 'gfm-mode "markdown-mode"
-  "Major mode for editing GitHub Flavored Markdown files" t)
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-
-;; Associate .env files with shell script master mode
-(add-to-list 'auto-mode-alist '("\\.env\\'" . shell-script-mode))
-
-;; Associate .pl files with prolog-mode instead of perl-mode
-(add-to-list 'auto-mode-alist '("\\.\\(pl\\|pro\\|lgt\\)" . prolog-mode))
 
 ;; In C, don't indent braces according to GNU style
 (setq c-default-style "linux"
