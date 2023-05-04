@@ -1,3 +1,0 @@
-«b:abstract» «k:class» «t:Describable» {
-  «t:void» «f:describe»();
-}

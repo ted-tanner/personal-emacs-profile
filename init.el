@@ -8,13 +8,29 @@
             (setq gc-cons-threshold (* 40 1024 1024))
             (split-window-horizontally)))
 
+;; Allow MELPA packages
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+;; LSP and autocomplete stuff
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'rust-mode-hook #'lsp-deferred)
+(add-hook 'go-mode-hook #'lsp-deferred)
+(add-hook 'php-mode-hook #'lsp-deferred)
+
+(setq lsp-inlay-hint-enable t)
+(setq company-idle-delay 0)
+(setq lsp-ui-doc-show-with-cursor t)
+(setq lsp-ui-doc-delay 2)
+
 ;; Set theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'deeper-blue t)
 
 ;; Stop Emacs from losing undo information by setting very high limits for undo buffers
-(setq undo-limit (* 6 1024 1024))
-(setq undo-strong-limit (* 6 1024 1024))
+(setq undo-limit (* 8 1024 1024))
+(setq undo-strong-limit (* 8 1024 1024))
 
 ;; Default frame size
 (add-to-list 'default-frame-alist '(width . 160))
@@ -26,36 +42,6 @@
 
 ;; Don't show Emacs welcome screen
 (setq inhibit-startup-screen t)
-
-;; Rust Language support
-(add-to-list 'load-path "~/.emacs.d/master-modes/rust-mode-master")
-(autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-
-;; Go Language support
-(add-to-list 'load-path "~/.emacs.d/master-modes/go-mode-master")
-(autoload 'go-mode "go-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-
-;; Dart Language Support
-(add-to-list 'load-path "~/.emacs.d/master-modes/dart-mode-master")
-(autoload 'dart-mode "dart-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
-
-;; Swift Language Support
-(add-to-list 'load-path "~/.emacs.d/master-modes/swift-mode-master")
-(autoload 'swift-mode "swift-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode))
-
-;; Kotlin Language Support
-(add-to-list 'load-path "~/.emacs.d/master-modes/kotlin-mode-master")
-(autoload 'kotlin-mode "kotlin-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
-
-;; PHP Language support
-(add-to-list 'load-path "~/.emacs.d/master-modes/php-mode-master")
-(autoload 'php-mode "php-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 ;; Markdown support
 (add-to-list 'load-path "~/.emacs.d/master-modes/markdown-mode-master")
@@ -123,6 +109,8 @@
    '("35cbbf5522ad9df6fea6ea312d5225538a6e97c589b508bdf18cfdc9f4b305a4" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "05ab3d9e5b552e594f1b6e83d0540542c599083c8ac87c58ff5bff3a18fcba19" "399bce2ec203f474cdd3e4463863011dab044da9618b9f398785714d64e1cb1c" "d2e44214a7dc0bd5b298413ed6c3ba9719f1d96794d9de3bdf7a9808902fd098" default))
  '(horizontal-scroll-bar-mode nil)
  '(linum-format " %5i ")
+ '(package-selected-packages
+   '(php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
  '(scroll-bar-mode nil)
  '(so-long-variable-overrides
    '((bidi-inhibit-bpa . t)

@@ -1,3 +1,0 @@
-«t:void» «f:main»() {
-  print(«s:'Hello, World!'»);
-}

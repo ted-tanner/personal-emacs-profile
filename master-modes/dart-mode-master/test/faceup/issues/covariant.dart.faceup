@@ -1,3 +1,0 @@
-«k:class» «t:Cat» «k:extends» «t:Animal» {
-  «t:void» «f:chase»(«b:covariant» «t:Mouse» «v:x») { ... }
-}

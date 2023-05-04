@@ -12,3 +12,5 @@ ido.last
 **/*.elc
 
 **/*~
+
+.lsp-session*
