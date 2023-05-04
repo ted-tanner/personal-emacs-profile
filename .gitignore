@@ -6,6 +6,7 @@ eshell/
 desktops/
 .tmp/
 eln-cache/
+lsp-cache/
 
 ido.last
 

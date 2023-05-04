@@ -20,9 +20,12 @@
 (add-hook 'php-mode-hook #'lsp-deferred)
 
 (setq lsp-inlay-hint-enable t)
-(setq company-idle-delay 0)
+(setq company-idle-delay 0.1)
+(setq company-minimum-prefix-length 1)
 (setq lsp-ui-doc-show-with-cursor t)
-(setq lsp-ui-doc-delay 2)
+(setq lsp-ui-doc-delay 1.25)
+
+(setq lsp-intelephense-php-version "8.2")
 
 ;; Set theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
