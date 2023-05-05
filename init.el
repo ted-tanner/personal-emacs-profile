@@ -25,6 +25,10 @@
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-ui-doc-delay 1)
 
+(custom-set-faces
+ '(company-tooltip-selection
+   ((t (:background "#244d87")))))
+
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "<tab>") nil)
   (define-key company-active-map (kbd "C-n") nil)
