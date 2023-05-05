@@ -23,7 +23,15 @@
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
 (setq lsp-ui-doc-show-with-cursor t)
-(setq lsp-ui-doc-delay 1.25)
+(setq lsp-ui-doc-delay 1)
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-n") nil)
+  (define-key company-active-map (kbd "C-p") nil)
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-M-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-M-p") 'company-select-previous))
 
 (setq lsp-intelephense-php-version "8.2")
 
