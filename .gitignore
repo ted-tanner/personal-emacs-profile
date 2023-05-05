@@ -7,7 +7,6 @@ desktops/
 .tmp/
 eln-cache/
 lsp-cache/
-intelephense/
 
 ido.last
 
