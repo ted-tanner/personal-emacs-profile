@@ -45,8 +45,8 @@
 (load-theme 'deeper-blue t)
 
 ;; Stop Emacs from losing undo information by setting very high limits for undo buffers
-(setq undo-limit (* 8 1024 1024))
-(setq undo-strong-limit (* 8 1024 1024))
+(setq undo-limit (* 3 1024 1024))
+(setq undo-strong-limit (* 6 1024 1024))
 
 ;; Default frame size
 (add-to-list 'default-frame-alist '(width . 160))
