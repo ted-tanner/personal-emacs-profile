@@ -38,7 +38,7 @@
   (define-key company-active-map (kbd "C-M-n") 'company-select-next)
   (define-key company-active-map (kbd "C-M-p") 'company-select-previous))
 
-(setq lsp-intelephense-php-version "8.2")
+(setq lsp-intelephense-php-version "8.1")
 
 ;; Set theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
