@@ -239,8 +239,11 @@ the minibuffer alone."
           (lambda () (local-set-key (kbd "C-c C-q") #'quick-calc)))
 
 ;; Bind C-c r to comint-history-isearch-backward in comint-mode
+;; Also disable company-mode in shell
 (add-hook 'shell-mode-hook
-          (lambda () (local-set-key (kbd "C-c r") #'comint-history-isearch-backward)))
+          (lambda ()
+            (local-set-key (kbd "C-c r") #'comint-history-isearch-backward)
+            (company-mode -1)))
 
 ;; Bind C-x j to imenu (jump between function declarations)
 (global-set-key (kbd "C-x j") #'imenu)
