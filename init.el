@@ -19,7 +19,7 @@
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'php-mode-hook #'lsp-deferred)
 
-(setq lsp-inlay-hint-enable t)
+(setq lsp-inlay-hint-enable nil)
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
 (setq lsp-ui-doc-show-with-cursor t)
