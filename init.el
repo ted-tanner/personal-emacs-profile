@@ -5,8 +5,8 @@
 ;; two windows
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (setq gc-cons-threshold (* 40 1024 1024))
-            (split-window-horizontally)))
+            (setq gc-cons-threshold (* 10 1024 1024))
+            (delete-other-windows)))
 
 ;; Allow MELPA packages
 (require 'package)
@@ -56,8 +56,9 @@
 ;; Use M-<arrow> to navigate directionally between windows
 (windmove-default-keybindings 'meta)
 
-;; Don't show Emacs welcome screen
+;; Don't show Emacs welcome screen or buffer menu on startup
 (setq inhibit-startup-screen t)
+(setq inhibit-startup-buffer-menu t)
 
 ;; Markdown support
 (add-to-list 'load-path "~/.emacs.d/master-modes/markdown-mode-master")
