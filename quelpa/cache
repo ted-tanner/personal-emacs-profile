@@ -1,0 +1,1 @@
+((copilot :fetcher github :repo "zerolfx/copilot.el" :branch "main" :files ("dist" "*.el")) (quelpa :repo "quelpa/quelpa" :fetcher github))

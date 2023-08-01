@@ -5,6 +5,7 @@ url/
 eshell/
 desktops/
 .tmp/
+.cache/
 eln-cache/
 lsp-cache/
 
