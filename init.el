@@ -8,14 +8,6 @@
             (setq gc-cons-threshold (* 10 1024 1024))
             (delete-other-windows)))
 
-;; Allow MELPA packages
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-(require 'use-package)
-(require 'quelpa-use-package)
-
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'rust-mode-hook #'lsp-deferred)
 (add-hook 'go-mode-hook #'lsp-deferred)
@@ -142,7 +134,7 @@
  '(horizontal-scroll-bar-mode nil)
  '(linum-format " %5i ")
  '(package-selected-packages
-   '(yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
+   '(typescript-mode yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
  '(scroll-bar-mode nil)
  '(so-long-variable-overrides
    '((bidi-inhibit-bpa . t)
@@ -181,7 +173,7 @@
             (local-set-key (kbd "M-y") #'yank-pop)
             (local-set-key (kbd "M-w") #'kill-ring-save)))
 
-;; Bind scroll 6 lines at a time to M-n and M-p. If prog-mode, remap
+;; Bind scroll 6 lines at a time to M-} and M-{. If prog-mode, remap
 ;; to forward-paragraph and backward-paragraph respectively
 (defun jump-multiple-lines-forward ()
   (interactive)
@@ -191,13 +183,13 @@
   (interactive)
   (forward-line -6))
 
-(global-set-key (kbd "M-n") #'jump-multiple-lines-forward)
-(global-set-key (kbd "M-p") #'jump-multiple-lines-backward)
+(global-set-key (kbd "M-}") #'jump-multiple-lines-forward)
+(global-set-key (kbd "M-{") #'jump-multiple-lines-backward)
 
 (add-hook 'prog-mode-hook
           (lambda ()
-            (local-set-key (kbd "M-n") #'forward-paragraph)
-            (local-set-key (kbd "M-p") #'backward-paragraph)))
+            (local-set-key (kbd "M-}") #'forward-paragraph)
+            (local-set-key (kbd "M-{") #'backward-paragraph)))
 
 ;; C-c M-o should clear buffer in Eshell
 (defun eshell-clear-buffer ()
