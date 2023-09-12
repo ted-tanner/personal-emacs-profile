@@ -9,9 +9,13 @@
             (delete-other-windows)))
 
 (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'c-mode-hook #'lsp-deferred)
+(add-hook 'c++-mode-hook #'lsp-deferred)
+(add-hook 'objc-mode-hook #'lsp-deferred)
 (add-hook 'rust-mode-hook #'lsp-deferred)
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'php-mode-hook #'lsp-deferred)
+(add-hook 'typescript-mode-hook #'lsp-deferred)
 
 (setq lsp-inlay-hint-enable nil)
 (setq company-idle-delay 0.1)
@@ -113,6 +117,9 @@
 (global-so-long-mode 1)
 (setq so-long-threshold 10000)
 (setq so-long-max-lines 1000000)
+
+;; Use pdflatex rather than latex for LaTeX mode
+(setq latex-run-command "pdflatex")
 
 ;; Always accept 'y' or 'n' instead of requiring 'yes' or 'no'
 (defalias 'yes-or-no-p #'y-or-n-p)
