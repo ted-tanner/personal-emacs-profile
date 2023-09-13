@@ -180,7 +180,7 @@
             (local-set-key (kbd "M-y") #'yank-pop)
             (local-set-key (kbd "M-w") #'kill-ring-save)))
 
-;; Bind scroll 6 lines at a time to M-} and M-{. If prog-mode, remap
+;; Bind scroll 6 lines at a time to M-n and M-p. If prog-mode, remap
 ;; to forward-paragraph and backward-paragraph respectively
 (defun jump-multiple-lines-forward ()
   (interactive)
@@ -190,13 +190,13 @@
   (interactive)
   (forward-line -6))
 
-(global-set-key (kbd "M-}") #'jump-multiple-lines-forward)
-(global-set-key (kbd "M-{") #'jump-multiple-lines-backward)
+(global-set-key (kbd "M-n") #'jump-multiple-lines-forward)
+(global-set-key (kbd "M-p") #'jump-multiple-lines-backward)
 
 (add-hook 'prog-mode-hook
           (lambda ()
-            (local-set-key (kbd "M-}") #'forward-paragraph)
-            (local-set-key (kbd "M-{") #'backward-paragraph)))
+            (local-set-key (kbd "M-n") #'forward-paragraph)
+            (local-set-key (kbd "M-p") #'backward-paragraph)))
 
 ;; C-c M-o should clear buffer in Eshell
 (defun eshell-clear-buffer ()
