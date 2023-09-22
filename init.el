@@ -84,8 +84,8 @@
 ;; Associate .env files with shell script master mode
 (add-to-list 'auto-mode-alist '("\\.env\\'" . shell-script-mode))
 
-;; Associate .pl files with prolog-mode instead of perl-mode
-(add-to-list 'auto-mode-alist '("\\.\\(pl\\|pro\\|lgt\\)" . prolog-mode))
+;; Associate .proto files with protobuf mode
+(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
 ;; Use ibuffer instead of buffer list
 (global-set-key (kbd "C-x C-b") 'ibuffer)
