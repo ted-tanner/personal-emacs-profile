@@ -219,14 +219,16 @@ the minibuffer alone."
   (interactive)
   (if (string-match "Minibuf" (buffer-name))
       (minibuffer-complete)
-    (if (or (derived-mode-p 'comint-mode) (derived-mode-p 'eshell-mode))
-        (completion-at-point)
-      (if mark-active
-          (indent-region (region-beginning)
-                         (region-end))
-        (if (looking-at "\\>")
-            (dabbrev-expand nil)
-          (indent-for-tab-command))))))
+    (if (and (eq major-mode 'term-mode) (term-in-char-mode))
+        (term-send-raw-string "\t")
+      (if (or (derived-mode-p 'comint-mode) (derived-mode-p 'eshell-mode))
+          (completion-at-point)
+        (if mark-active
+            (indent-region (region-beginning)
+                           (region-end))
+          (if (looking-at "\\>")
+              (dabbrev-expand nil)
+            (indent-for-tab-command)))))))
 
 (global-set-key (kbd "<tab>") #'indenting-and-completing-tab)
 (add-hook 'php-mode-hook
