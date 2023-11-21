@@ -52,8 +52,7 @@
 (setq lsp-intelephense-php-version "8.1")
 
 ;; Set theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'deeper-blue t)
+(load-theme 'standard-dark t)
 
 ;; Stop Emacs from losing undo information by setting very high limits for undo buffers
 (setq undo-limit (* 3 1024 1024))
@@ -137,11 +136,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("35cbbf5522ad9df6fea6ea312d5225538a6e97c589b508bdf18cfdc9f4b305a4" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "05ab3d9e5b552e594f1b6e83d0540542c599083c8ac87c58ff5bff3a18fcba19" "399bce2ec203f474cdd3e4463863011dab044da9618b9f398785714d64e1cb1c" "d2e44214a7dc0bd5b298413ed6c3ba9719f1d96794d9de3bdf7a9808902fd098" default))
+   '("8f663b8939be3b54d70a4c963d5d0f1cfd278f447cb4257df6c4571fb8c71bca" "35cbbf5522ad9df6fea6ea312d5225538a6e97c589b508bdf18cfdc9f4b305a4" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "05ab3d9e5b552e594f1b6e83d0540542c599083c8ac87c58ff5bff3a18fcba19" "399bce2ec203f474cdd3e4463863011dab044da9618b9f398785714d64e1cb1c" "d2e44214a7dc0bd5b298413ed6c3ba9719f1d96794d9de3bdf7a9808902fd098" default))
  '(horizontal-scroll-bar-mode nil)
  '(linum-format " %5i ")
  '(package-selected-packages
-   '(nlinum typescript-mode yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
+   '(standard-themes ## nlinum typescript-mode yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
  '(scroll-bar-mode nil)
  '(so-long-variable-overrides
    '((bidi-inhibit-bpa . t)
@@ -151,10 +150,8 @@
      (show-paren-mode)
      (truncate-lines)
      (which-func-mode)))
+ '(typescript-indent-level 4)
  '(window-divider-mode t))
-
-;; Custom theme overrides
-
 
 ;; Don't poop backup files everywhere (put them in a temp directory)
 (setq temporary-file-directory "~/.emacs.d/.tmp/")
