@@ -107,6 +107,7 @@
 
 ;; Indent with spaces, not tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;; Open shell and buffer list in current window
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
@@ -241,10 +242,24 @@ the minibuffer alone."
 
 (global-set-key (kbd "M-s") 'search-in-all-buffers)
 
-;; Bind C-c C-q to quick-calc (override the key binding for C mode)
+;; Bind C-c C-q to quick-calc
 (global-set-key (kbd "C-c C-q") #'quick-calc)
+
+;; In C, don't indent braces according to GNU style
+(setq c-default-style "linux"
+      indent-tabs-mode nil
+      tab-width 4
+      comment-start "//"
+      comment-end ""
+      c-basic-offset 4)
+
 (add-hook 'c-mode-hook
-          (lambda () (local-set-key (kbd "C-c C-q") #'quick-calc)))
+          (lambda ()
+            (local-set-key (kbd "C-c C-q") #'quick-calc)
+            (setq-local indent-tabs-mode nil
+                        tab-width 4
+                        comment-start "//"
+                        comment-end "")))
 
 ;; Bind C-c r to comint-history-isearch-backward in comint-mode
 ;; Also disable company-mode in shell
@@ -261,14 +276,6 @@ the minibuffer alone."
 
 ;; Bind C-<tab> to cycle through buffers
 (global-set-key (kbd "C-<tab>") #'next-buffer)
-
-;; In C, don't indent braces according to GNU style
-(setq c-default-style "linux"
-      c-basic-offset 4)
-
-;; In C, use C++ style comments (only supported for C99 and beyond)
-(add-hook 'c-mode-hook (lambda () (setq comment-start "//"
-                                        comment-end "")))
 
 ;; Some functions for seeing garbage collection information
 (defun report-gc-elapsed-time ()
