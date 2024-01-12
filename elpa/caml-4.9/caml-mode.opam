@@ -1,0 +1,28 @@
+opam-version: "2.0"
+authors: [
+  "Damien Doligez"
+  "Jacques Garrigue"
+  "Xavier Leroy"
+  "Didier Remy"
+  "Ian T Zimmerman"
+]
+maintainer: "Christophe.Troestler@umons.ac.be"
+license: "GPL-2.0-or-later"
+homepage: "https://github.com/ocaml/caml-mode"
+dev-repo: "git+https://github.com/ocaml/caml-mode.git"
+bug-reports: "https://github.com/ocaml/caml-mode/issues"
+install: [
+  [make "install" "INSTALL_DIR=%{share}%/emacs/site-lisp"]
+  [make "install-ocamltags" "INSTALL_BIN=%{bin}%"]
+]
+remove: [
+  [make "uninstall" "INSTALL_DIR=%{share}%/emacs/site-lisp"]
+  [make "uninstall-ocamltags" "INSTALL_BIN=%{bin}%"]
+]
+depends: ["ocaml" "conf-emacs"]
+post-messages: """
+If you have not yet done so, please add in ~/.emacs.d/init.el or
+in ~/.emacs to following line:
+    (add-to-list 'load-path "%{share}%/emacs/site-lisp/")
+""" {success & !user-setup:installed}
+synopsis: "SYNOPSIS"

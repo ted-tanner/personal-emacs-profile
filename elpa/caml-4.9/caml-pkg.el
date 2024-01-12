@@ -1,0 +1,2 @@
+;; Generated package description from caml.el  -*- no-byte-compile: t -*-
+(define-package "caml" "4.9" "Caml mode for GNU Emacs" '((emacs "24.3")) :keywords '("ocaml") :authors '(("Jacques Garrigue" . "garrigue@kurims.kyoto-u.ac.jp") ("Ian T Zimmerman" . "itz@rahul.net") ("Damien Doligez" . "damien.doligez@inria.fr")) :maintainer '("Christophe Troestler" . "Christophe.Troestler@umons.ac.be") :url "https://github.com/ocaml/caml-mode")

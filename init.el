@@ -143,7 +143,7 @@
  '(horizontal-scroll-bar-mode nil)
  '(linum-format " %5i ")
  '(package-selected-packages
-   '(standard-themes ## nlinum typescript-mode yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
+   '(tuareg standard-themes ## nlinum typescript-mode yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
  '(scroll-bar-mode nil)
  '(so-long-variable-overrides
    '((bidi-inhibit-bpa . t)
@@ -340,5 +340,8 @@ the minibuffer alone."
     ;; install the minor mode https://github.com/ProofGeneral/opam-switch-mode
     ;; and use one of its "OPSW" menus.
     ))
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(add-hook 'tuareg-mode-hook
+          (lambda ()
+            (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")))
