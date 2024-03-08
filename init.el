@@ -8,6 +8,11 @@
             (setq gc-cons-threshold (* 10 1024 1024))
             (delete-other-windows)))
 
+;; MELPA
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
 (require 'lsp-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
@@ -18,12 +23,23 @@
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'php-mode-hook #'lsp-deferred)
 (add-hook 'typescript-mode-hook #'lsp-deferred)
+(add-hook 'java-mode-hook #'lsp-deferred)
 
 (setq lsp-inlay-hint-enable nil)
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-ui-doc-delay 1)
+
+;; Java LSP with Spring Boot support
+;; (must run `lsp-install-server` to install jdtls)
+(require 'lsp-java)
+(add-hook 'java-mode-hook #'lsp)
+
+(require 'lsp-java-boot)
+
+(add-hook 'lsp-mode-hook #'lsp-lens-mode)
+(add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -143,7 +159,7 @@
  '(horizontal-scroll-bar-mode nil)
  '(linum-format " %5i ")
  '(package-selected-packages
-   '(tuareg standard-themes ## nlinum typescript-mode yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
+   '(lsp-java tuareg standard-themes ## nlinum typescript-mode yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
  '(scroll-bar-mode nil)
  '(so-long-variable-overrides
    '((bidi-inhibit-bpa . t)
