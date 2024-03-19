@@ -16,3 +16,5 @@ ido.last
 **/*~
 
 .lsp-session*
+
+.dap-breakpoints

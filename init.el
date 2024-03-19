@@ -104,6 +104,9 @@
 ;; Associate .proto files with protobuf mode
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
+;; Associate .plist files with xml mode
+(add-to-list 'auto-mode-alist '("\\.plist\\'" . xml-mode))
+
 ;; Use ibuffer instead of buffer list
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -213,6 +216,9 @@
           (lambda ()
             (local-set-key (kbd "M-n") #'forward-paragraph)
             (local-set-key (kbd "M-p") #'backward-paragraph)))
+
+;; Show line numbers in prog-mode
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;; C-c M-o should clear buffer in Eshell
 (defun eshell-clear-buffer ()
