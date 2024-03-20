@@ -217,8 +217,9 @@
             (local-set-key (kbd "M-n") #'forward-paragraph)
             (local-set-key (kbd "M-p") #'backward-paragraph)))
 
-;; Show line numbers in prog-mode
+;; Show line numbers and truncate lines in prog-mode
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'prog-mode-hook (lambda () (setq truncate-lines t)))
 
 ;; C-c M-o should clear buffer in Eshell
 (defun eshell-clear-buffer ()
