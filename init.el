@@ -5,7 +5,7 @@
 ;; two windows
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (setq gc-cons-threshold (* 10 1024 1024))
+            (setq gc-cons-threshold (* 120 1024 1024))
             (delete-other-windows)))
 
 ;; MELPA
@@ -126,9 +126,17 @@
 (defun ido-kill-emacs-hook ()
   (ignore-errors (ido-save-history)))
 
-;; Indent with spaces, not tabs
-(setq-default indent-tabs-mode nil)
+;; Infer tabs vs spaces for existing files (in prog-mode), but default to spaces for new files
 (setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+
+(defun infer-indentation-style ()
+  (let ((space-count (how-many "^  " (point-min) (point-max)))
+        (tab-count (how-many "^\t" (point-min) (point-max))))
+    (if (>= space-count tab-count) (setq indent-tabs-mode nil))
+    (if (> tab-count space-count) (setq indent-tabs-mode t))))
+
+(add-hook 'prog-mode-hook 'infer-indentation-style)
 
 ;; Open shell and buffer list in current window
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
@@ -368,3 +376,4 @@ the minibuffer alone."
 (add-hook 'tuareg-mode-hook
           (lambda ()
             (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")))
+
