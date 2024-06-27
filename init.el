@@ -23,23 +23,12 @@
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'php-mode-hook #'lsp-deferred)
 (add-hook 'typescript-mode-hook #'lsp-deferred)
-(add-hook 'java-mode-hook #'lsp-deferred)
 
 (setq lsp-inlay-hint-enable nil)
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-ui-doc-delay 1)
-
-;; Java LSP with Spring Boot support
-;; (must run `lsp-install-server` to install jdtls)
-(require 'lsp-java)
-(add-hook 'java-mode-hook #'lsp)
-
-(require 'lsp-java-boot)
-
-(add-hook 'lsp-mode-hook #'lsp-lens-mode)
-(add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
