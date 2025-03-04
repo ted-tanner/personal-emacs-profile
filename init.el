@@ -23,6 +23,7 @@
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'php-mode-hook #'lsp-deferred)
 (add-hook 'typescript-mode-hook #'lsp-deferred)
+(add-hook 'zig-mode-hook #'lsp-deferred)
 
 (setq lsp-inlay-hint-enable nil)
 (setq company-idle-delay 0.1)
