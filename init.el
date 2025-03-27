@@ -156,20 +156,25 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("8f663b8939be3b54d70a4c963d5d0f1cfd278f447cb4257df6c4571fb8c71bca" "35cbbf5522ad9df6fea6ea312d5225538a6e97c589b508bdf18cfdc9f4b305a4" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "05ab3d9e5b552e594f1b6e83d0540542c599083c8ac87c58ff5bff3a18fcba19" "399bce2ec203f474cdd3e4463863011dab044da9618b9f398785714d64e1cb1c" "d2e44214a7dc0bd5b298413ed6c3ba9719f1d96794d9de3bdf7a9808902fd098" default))
+   '("8f663b8939be3b54d70a4c963d5d0f1cfd278f447cb4257df6c4571fb8c71bca"
+     "35cbbf5522ad9df6fea6ea312d5225538a6e97c589b508bdf18cfdc9f4b305a4"
+     "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163"
+     "05ab3d9e5b552e594f1b6e83d0540542c599083c8ac87c58ff5bff3a18fcba19"
+     "399bce2ec203f474cdd3e4463863011dab044da9618b9f398785714d64e1cb1c"
+     "d2e44214a7dc0bd5b298413ed6c3ba9719f1d96794d9de3bdf7a9808902fd098"
+     default))
  '(horizontal-scroll-bar-mode nil)
  '(linum-format " %5i ")
  '(package-selected-packages
-   '(lsp-java tuareg standard-themes ## nlinum typescript-mode yaml-mode use-package quelpa-use-package quelpa protobuf-mode dap-mode php-mode kotlin-mode swift-mode dart-mode go-mode lsp-ui company corfu flycheck lsp-mode rust-mode))
+   '(## company corfu dap-mode dart-mode flycheck go-mode kotlin-mode
+        lsp-java lsp-mode lsp-ui nlinum php-mode protobuf-mode quelpa
+        quelpa-use-package reformatter rust-mode standard-themes
+        swift-mode tuareg typescript-mode use-package yaml-mode))
  '(scroll-bar-mode nil)
  '(so-long-variable-overrides
-   '((bidi-inhibit-bpa . t)
-     (bidi-paragraph-direction . left-to-right)
-     (global-hl-line-mode)
-     (line-move-visual . t)
-     (show-paren-mode)
-     (truncate-lines)
-     (which-func-mode)))
+   '((bidi-inhibit-bpa . t) (bidi-paragraph-direction . left-to-right)
+     (global-hl-line-mode) (line-move-visual . t) (show-paren-mode)
+     (truncate-lines) (which-func-mode)))
  '(typescript-indent-level 4)
  '(window-divider-mode t))
 
