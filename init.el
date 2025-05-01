@@ -171,7 +171,8 @@
    '(## company corfu dap-mode dart-mode flycheck go-mode kotlin-mode
         lsp-java lsp-mode lsp-ui nlinum php-mode protobuf-mode quelpa
         quelpa-use-package reformatter rust-mode standard-themes
-        swift-mode tuareg typescript-mode use-package yaml-mode))
+        swift-mode tuareg typescript-mode use-package yaml-mode
+        yasnippet))
  '(scroll-bar-mode nil)
  '(so-long-variable-overrides
    '((bidi-inhibit-bpa . t) (bidi-paragraph-direction . left-to-right)
