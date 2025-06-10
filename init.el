@@ -43,7 +43,7 @@
 ;; Enable Github Copilot
 (add-hook 'prog-mode-hook 'copilot-mode)
 (setq copilot-indent-offset-warning-disable t)
-(setq copilot-max-char 300000)
+(setq copilot-max-char 1000000)
 
 (with-eval-after-load 'copilot
   (define-key copilot-mode-map (kbd "C-S-n") #'copilot-next-completion)
