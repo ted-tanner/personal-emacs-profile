@@ -25,6 +25,9 @@
 (add-hook 'typescript-mode-hook #'lsp-deferred)
 (add-hook 'zig-mode-hook #'lsp-deferred)
 
+;; Key bind for `lsp-find-definition`
+(global-set-key (kbd "C->") #'lsp-find-definition)
+
 (setq lsp-inlay-hint-enable nil)
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
