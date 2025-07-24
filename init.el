@@ -171,11 +171,11 @@
  '(horizontal-scroll-bar-mode nil)
  '(linum-format " %5i ")
  '(package-selected-packages
-   '(## company corfu dap-mode dart-mode flycheck go-mode kotlin-mode
-        lsp-java lsp-mode lsp-ui nlinum php-mode protobuf-mode quelpa
-        quelpa-use-package reformatter rust-mode standard-themes
-        swift-mode tuareg typescript-mode use-package yaml-mode
-        yasnippet))
+   '(## company corfu dap-mode dart-mode flycheck go-mode json-mode
+        jsonnet-mode kotlin-mode lsp-java lsp-mode lsp-ui nlinum
+        php-mode protobuf-mode quelpa quelpa-use-package reformatter
+        rust-mode standard-themes swift-mode tuareg typescript-mode
+        use-package yaml-mode))
  '(scroll-bar-mode nil)
  '(so-long-variable-overrides
    '((bidi-inhibit-bpa . t) (bidi-paragraph-direction . left-to-right)
